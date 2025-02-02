@@ -10,4 +10,9 @@ class Skill extends Model
     use HasFactory;
 
     protected $fillable = ['name'];
+
+    public function jobPosts()
+    {
+        return $this->belongsToMany(JobPost::class);
+    }
 }

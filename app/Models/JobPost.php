@@ -26,4 +26,15 @@ class JobPost extends Model
     protected $casts = [
         'skills' => 'array',
     ];
+
+     // Define Many-to-Many Relationship with Skill Model
+     public function skillsList()
+     {
+         return $this->belongsToMany(Skill::class, 'job_post_skill', 'job_post_id', 'skill_id');
+     }
+
+     public function skills()
+     {
+         return $this->belongsToMany(Skill::class, 'job_post_skill', 'job_post_id', 'skill_id');
+     }
 }
