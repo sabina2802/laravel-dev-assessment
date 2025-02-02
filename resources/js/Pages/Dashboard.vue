@@ -2,6 +2,12 @@
 import Hero from '@/Components/Dashboard/Hero.vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
+
+import JobList from '@/Components/Dashboard/JobList.vue';
+
+defineProps({
+    jobs: Array
+});
 </script>
 
 <template>
@@ -16,6 +22,7 @@ import { Head } from '@inertiajs/vue3';
         <div class="bg-white">
             <div class="container py-5">
                 <!-- TODO: Add job list here -->
+                 <JobList :jobs="jobs" /> <!-- ✅ Pass jobs data -->
             </div>
         </div>
     </AuthenticatedLayout>
