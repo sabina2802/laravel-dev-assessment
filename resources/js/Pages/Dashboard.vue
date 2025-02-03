@@ -23,7 +23,7 @@ defineProps({
         <div class="bg-white">
             <div class="container py-5">
                 <!-- TODO: Add job list here -->
-                 <JobList :jobs="jobs" /> <!-- ✅ Pass jobs data -->
+                 <JobList :jobs="jobs" />
             </div>
         </div>
     </AuthenticatedLayout>

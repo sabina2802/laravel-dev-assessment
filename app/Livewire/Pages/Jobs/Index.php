@@ -9,6 +9,7 @@ use App\Models\JobPost;
 class Index extends Component
 {
     use WithPagination;
+    
     private function setMessage($type, $message)
     {
         if ($type === 'success') {

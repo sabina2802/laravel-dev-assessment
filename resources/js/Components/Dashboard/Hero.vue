@@ -2,13 +2,11 @@
 import { reactive } from 'vue';
 import { router } from '@inertiajs/vue3';
 
-// Reactive filter object for search inputs
 const filters = reactive({
     title: '',
     location: '',
 });
 
-// Function to trigger job search
 const searchJobs = () => {
     router.get('/dashboard', { title: filters.title, location: filters.location }, { preserveState: true });
 };
@@ -23,7 +21,6 @@ const searchJobs = () => {
                     Looking for jobs? Browse our latest job openings to view & apply to the best jobs today!
                 </p>
             </div>
-            <!-- Search -->
             <div>
                 <div
                     class="bg-white w-full border rounded-full overflow-hidden border-gray-200 max-w-3xl mx-auto flex items-center justify-center">
@@ -62,8 +59,6 @@ const searchJobs = () => {
                             type="text"
                         />
                     </div>
-
-                    <!-- Search Button -->
                     <button @click="searchJobs" class="bg-brand px-6 text-sm font-medium py-2 rounded-full text-white mr-3">
                         Find jobs
                     </button>
