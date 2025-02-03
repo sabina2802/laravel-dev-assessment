@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\JobPost;
 use Inertia\Inertia;
 use Illuminate\Support\Str;
+use Carbon\Carbon;
 
 class JobController extends Controller
 {
@@ -36,7 +37,9 @@ class JobController extends Controller
                 'location' => $job->location,
                 'description' => Str::words($job->description, 20),
                 'tags' => $job->skillsList->pluck('name')->toArray(),
-                'logo' => $job->logo ? asset('storage/' . $job->logo) : asset('images/default-logo.png')
+                'logo' => $job->logo ? asset('storage/' . $job->logo) : asset('images/default-logo.png'),
+                'timeAgo' => Carbon::parse($job->created_at)->diffForHumans()
+                
             ];
         });
 

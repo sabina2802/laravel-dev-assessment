@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-[#F8FAFC] py-12">
+  <div class="py-12">
     <div class="container mx-auto px-6">
       <!-- Job Listing Grid -->
       <div v-if="jobs.length" class="grid gap-6 sm:grid-cols-1 lg:grid-cols-2">
