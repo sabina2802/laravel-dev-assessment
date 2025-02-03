@@ -2,7 +2,6 @@
 import Hero from '@/Components/Dashboard/Hero.vue';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
-import 'font-awesome/css/font-awesome.min.css';
 
 import JobList from '@/Components/Dashboard/JobList.vue';
 

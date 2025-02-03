@@ -29,8 +29,8 @@
                 </div>
                 <!-- Location with Rounded Gray Shadow -->
                 <div class="flex items-center gap-1 text-sm text-gray-500 bg-gray-100 rounded-full py-1 px-3 shadow-sm">
-                  <!-- FontAwesome Icon for Location -->
-                  <i class="fa-solid fa-location-dot text-gray-400"></i>
+                  <!-- Location Icon -->
+                  <Icon name="location" class="text-gray-400 w-4 h-4" />
                   <span>{{ job.location }}</span>
                 </div>
               </div>
@@ -48,25 +48,22 @@
 
               <!-- Job Meta Details -->
               <div class="flex items-center gap-5 text-sm text-gray-500 mt-3">
-                <!-- Experience with FontAwesome Icon -->
+                <!-- Experience with Icon -->
                 <span class="flex items-center gap-1.5">
-                  <!-- FontAwesome Icon for Experience -->
-                  <i class="fa-solid fa-briefcase text-gray-400"></i>
+                  <Icon name="briefcase" class="text-gray-400 w-4 h-4" />
                   {{ job.experience }} Yrs
                 </span>
 
-                <!-- Salary with FontAwesome Icon -->
+                <!-- Salary with Icon -->
                 <span class="flex items-center gap-1.5">
-                  <!-- FontAwesome Icon for Salary -->
-                  <i class="fa-solid fa-dollar-sign text-gray-400"></i>
+                  <Icon name="rupee" class="text-gray-400 w-4 h-4" />
                   {{ job.salary }}
                 </span>
               </div>
 
-              <!-- Job Description with FontAwesome Icon -->
+              <!-- Job Description with Icon -->
               <div class="flex items-start gap-1 mt-3 text-sm text-gray-600">
-                <!-- FontAwesome Icon for Description -->
-                <i class="fa-solid fa-file-alt text-gray-400"></i>
+                <Icon name="file" class="text-gray-400 w-4 h-4" />
                 <p class="leading-relaxed line-clamp-2">{{ job.description }}</p>
               </div>
 
@@ -99,15 +96,12 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    jobs: {
-      type: Array,
-      required: true,
-    },
-  },
-};
+<script setup lang="ts">
+import Icon from '@/components/Icon.vue'; // Import the Icon component
+
+const props = defineProps<{
+  jobs: Array;
+}>();
 </script>
 
 <style scoped>
