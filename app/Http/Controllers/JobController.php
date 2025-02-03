@@ -10,33 +10,12 @@ use Illuminate\Support\Str;
 
 class JobController extends Controller
 {
-    //
-    
-        public function index(Request $request)
-        {
-            // Fetch jobs from the database
-            /*$jobs = JobPost::with('skillsList')->get()->map(function ($job) {
-                return [
-                    'id' => $job->id,
-                    'title' => $job->title,
-                    'company' => $job->companyName,
-                    'experience' => $job->experience,
-                    'salary' => $job->salary,
-                    'location' => $job->location,
-                    'description' => Str::words($job->description, 20),
-                    'tags' => $job->skillsList->pluck('name')->toArray(),
-                    'logo' => $job->logo ? asset('storage/' . $job->logo) : asset('images/default-logo.png')
-                ];
-            });
-    
-            // Pass jobs to Inertia and render Dashboard component
-            return Inertia::render('Dashboard', [
-                'jobs' => $jobs
-            ]);*/// Fetch query parameters for filtering
+    public function index(Request $request)
+    {
+        
         $title = $request->input('title');
         $location = $request->input('location');
 
-        // Build the query with optional filters
         $query = JobPost::with('skillsList');
 
         if (!empty($title)) {
@@ -47,7 +26,6 @@ class JobController extends Controller
             $query->where('location', 'like', '%' . $location . '%');
         }
 
-        // Fetch and format the job data
         $jobs = $query->get()->map(function ($job) {
             return [
                 'id' => $job->id,
@@ -62,7 +40,6 @@ class JobController extends Controller
             ];
         });
 
-        // Pass the data to Inertia
         return Inertia::render('Dashboard', [
             'jobs' => $jobs,
             'filters' => [
@@ -70,7 +47,5 @@ class JobController extends Controller
                 'location' => $location,
             ],
         ]);
-
-
     }
 }

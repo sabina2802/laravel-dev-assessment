@@ -17,7 +17,7 @@ return new class extends Migration {
             $table->string('extraInfo')->nullable();
             $table->string('companyName');
             $table->string('logo')->nullable();
-            $table->json('skills');
+            $table->json('skills')->nullable();
             $table->timestamps();
         });
     }

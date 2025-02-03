@@ -3,10 +3,12 @@
 namespace App\Livewire\Pages\Jobs;
 
 use Livewire\Component;
+use Livewire\WithPagination;
 use App\Models\JobPost;
 
 class Index extends Component
 {
+    use WithPagination;
     private function setMessage($type, $message)
     {
         if ($type === 'success') {
@@ -32,7 +34,7 @@ class Index extends Component
     public function render()
     {
         return view('livewire.pages.jobs.index', [
-            'jobs' => JobPost::with('skillsList')->get() // Eager load skills
+            'jobs' => JobPost::with('skillsList')->paginate(10)
         ]);
     }
 }

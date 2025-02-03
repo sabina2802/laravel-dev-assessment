@@ -45,9 +45,7 @@ class Create extends Component
             $job->experience = $this->experience;
             $job->salary = $this->salary;
             $job->location = $this->location;
-
-            // Convert extra info array to a comma-separated string
-            //$job->extraInfo = implode(',', $this->extraInfo);
+            $job->extraInfo = $this->extraInfo;
 
             $job->companyName = $this->companyName;
 
@@ -56,6 +54,7 @@ class Create extends Component
                 $job->logo = $this->companyLogo->store('company-logos', 'public');
             }
 
+            
             $job->save();
 
             // Attach selected skills to the job post

@@ -24,7 +24,7 @@
                     </tr>
                 </thead>
                 <tbody class="text-gray-700">
-                    @foreach ($skills as $skill)
+                    @forelse ($skills as $skill)
                         <tr class="border-b hover:bg-gray-50 transition">
                             <td class="px-6 py-4">{{ $skill->name }}</td>
                             <td class="px-4 py-3 text-right">
@@ -37,7 +37,11 @@
                                 </button>
                             </td>
                         </tr>
-                    @endforeach
+                        @empty
+                            <tr>
+                                <td colspan="10" class="text-center py-4 text-gray-500">No records found.</td>
+                            </tr>
+                    @endforelse
                 </tbody>
             </table>
 
@@ -102,20 +106,4 @@
             }
         });
     }
-
-    /*function validateSkillName() {
-        const skillNameInput = document.getElementById('skillName');
-        const skillNameError = document.getElementById('skillNameError');
-        const skillName = skillNameInput.value.trim();
-
-        if (skillName === '') {
-            skillNameError.classList.remove('hidden');
-            skillNameInput.classList.add('border-red-500');
-            return false;
-        } else {
-            skillNameError.classList.add('hidden');
-            skillNameInput.classList.remove('border-red-500');
-            return true;
-        }
-    }*/
 </script>
